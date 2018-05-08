@@ -8,9 +8,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <!--<li class="nav-item active">-->
-                    <!--<router-link class="nav-link" to="/cars"> Contacts</router-link>-->
-                <!--</li>-->
+                <li class="nav-item active">
+                    <router-link class="nav-link" to="/add"> Add car</router-link>
+                </li>
             </ul>
         </div>
     </nav>
