@@ -50,8 +50,9 @@
             </div>
             </div>
 
-            <button>Submit the pritties form in the world </button>
+            <button type="submit">Submit the pritties form in the world </button>
             <button type="reset">reset</button>
+            <button type="button"  @click="alert" >alert</button>
         </form>
     </div>
 </template>
@@ -97,6 +98,14 @@
                 carsServices.add(this.newCar)
 
                 this.$router.push('cars');
+
+            },
+
+            alert(){
+
+
+                alert(JSON.stringify(this.newCar))
+
 
             }
 
