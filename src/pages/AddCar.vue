@@ -51,6 +51,7 @@
             </div>
 
             <button>Submit the pritties form in the world </button>
+            <button type="reset">reset</button>
         </form>
     </div>
 </template>
