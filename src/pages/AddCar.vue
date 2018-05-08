@@ -3,14 +3,14 @@
         <form  @submit.prevent="addCar" >
             <div class="form-row">
                 <div class="col">
-                    <input v-model="newCar.brand"  type="text" class="form-control" placeholder="Car Brand">
+                    <input v-model="newCar.brand"  type="text" class="form-control" placeholder="Car Brand"  pattern=".{2,}"   required title="2 characters minimum">
                 </div>
                 <div class="col">
-                    <input v-model="newCar.model" type="text" class="form-control" placeholder="Car Model">
+                    <input v-model="newCar.model" type="text" class="form-control" placeholder="Car Model"  pattern=".{2,}"   required title="2 characters minimum">
                 </div>
                 <div class="col">
                     <label >Year</label>
-                    <select v-model="newCar.year" class="form-control"    >
+                    <select v-model="newCar.year" class="form-control"  required  >
                         <option v-for="(year,key) in years" :key="key" selected>{{ year}}.</option>
                     </select>
                 </div>
@@ -18,7 +18,7 @@
                     <input v-model="newCar.maxSpeed" type="number" class="form-control" placeholder="max speed">
                 </div>
                 <div class="col">
-                    <input v-model="newCar.numberOfDoors" type="number" class="form-control" placeholder="Number of doors">
+                    <input v-model="newCar.numberOfDoors" type="number" class="form-control" placeholder="Number of doors" required>
                 </div>
 
                 <div class="col">
