@@ -30,12 +30,16 @@ export default class CarsServices{
         return axios.post('cars',value)
     }
 
+    get (id) {
+        return axios.get(`cars/${id}`)
+    }
 
-    edit(){
+    edit (car) {
+        return axios.put(`cars/${car.id}`, car)
+    }
 
-
-        return axios.put()
-
+    remove (id) {
+        return axios.delete(`cars/${id}`)
     }
 
 

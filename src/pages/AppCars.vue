@@ -25,7 +25,7 @@
                 <th>{{ car.model }}</th>
                 <th>{{ car.numberOfDoors}}</th>
                 <th>{{ car.year}}</th>
-                <th><router-link :to="{ name: 'edit', params: { id: car.id}}" btn btn-success></router-link> </th>
+                <th><router-link :to="{ name: 'edit', params: { id: car.id}}" btn btn-primary>Edit</router-link> </th>
             </tr>
             </tbody>
         </table>
