@@ -31,6 +31,14 @@ export default class CarsServices{
     }
 
 
+    edit(){
+
+
+        return axios.put()
+
+    }
+
+
 }
 
 

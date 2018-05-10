@@ -1,19 +1,34 @@
 <template>
     <div>
 
-        <ul v-for="(car,key) in cars" :key="key">
-
-                <li>{{ car.id }}</li>
-                <li>{{ car.brand }}</li>
-                <li>{{ car.engine }}</li>
-                <li>{{ car.isAutomatic}}</li>
-                <li>{{ car.maxSpeed }}</li>
-                <li>{{ car.model }}</li>
-                <li>{{ car.numberOfDoors}}</li>
-                <li>{{ car.year}}</li>
-
-        </ul>
-
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">brand</th>
+                <th scope="col">engine</th>
+                <th scope="col">is automatic</th>
+                <th scope="col">max speed</th>
+                <th scope="col">model</th>
+                <th scope="col">number of doors</th>
+                <th scope="col">year of production</th>
+                <th scope="col">action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  v-for="(car,key) in cars" :key="key">
+                <th>{{ car.id }}</th>
+                <th>{{ car.brand }}</th>
+                <th>{{ car.engine }}</th>
+                <th>{{ car.isAutomatic}}</th>
+                <th>{{ car.maxSpeed }}</th>
+                <th>{{ car.model }}</th>
+                <th>{{ car.numberOfDoors}}</th>
+                <th>{{ car.year}}</th>
+                <th><router-link :to="{ name: 'edit', params: { id: car.id}}" btn btn-success></router-link> </th>
+            </tr>
+            </tbody>
+        </table>
 
 
     </div>
@@ -66,7 +81,6 @@
 
 
             }
-
 
         },
         // created() {

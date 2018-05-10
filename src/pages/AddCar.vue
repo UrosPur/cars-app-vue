@@ -3,7 +3,7 @@
         <form  @submit.prevent="addCar" >
             <div class="form-row">
                 <div class="col">
-                    <input v-model="newCar.brand"  type="text" class="form-control" placeholder="Car Brand"  pattern=".{2,}"   required title="2 characters minimum">
+                                                                                                                                                                                                                                                                                                                                                    <input v-model="newCar.brand"  type="text" class="form-control" placeholder="Car Brand"  pattern=".{2,}"   required title="2 characters minimum">
                 </div>
                 <div class="col">
                     <input v-model="newCar.model" type="text" class="form-control" placeholder="Car Model"  pattern=".{2,}"   required title="2 characters minimum">
