@@ -13,6 +13,7 @@
                 <th scope="col">number of doors</th>
                 <th scope="col">year of production</th>
                 <th scope="col">action</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -26,7 +27,10 @@
                 <th>{{ car.numberOfDoors}}</th>
                 <th>{{ car.year}}</th>
                 <th>
-                    <router-link :to="{ name: 'edit', params: { id: car.id}}" btn btn-primary>Edit</router-link>
+                    <router-link :to="{ name: 'edit', params: { id: car.id}}" class="btn btn-primary">Edit</router-link>
+                </th>
+                <th>
+                    <button name="button" class="btn btn-danger" @click="removeCar(car.id)">delete</button>
                 </th>
             </tr>
             </tbody>
@@ -72,6 +76,27 @@
                         this.cars = response.data
 
                     })
+
+            },
+
+            removeCar(id) {
+
+
+
+                if (confirm('Are you sure')) {
+                    alert('Thanks for confirming');
+                    carsServices.remove(id)
+                        .then((response) => {
+
+                          this.getAll()
+
+                        })
+
+                } else {
+                    alert('No Car has been deleted');
+                    return
+                }
+
 
             }
 
