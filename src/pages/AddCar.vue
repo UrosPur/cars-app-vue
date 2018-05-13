@@ -1,64 +1,78 @@
 <template>
     <div>
+
         <form @submit.prevent="addCar">
-            <div class="form-row">
-                <div class="col">
-                    <input v-model="newCar.brand" type="text" class="form-control" placeholder="Car Brand"
-                           pattern=".{2,}" required title="2 characters minimum">
+            <div class="form-group row">
+                <label for="text" class="col-4 col-form-label">Car Brand</label>
+                <div class="col-8">
+                    <input v-model="newCar.brand" id="text" name="text" placeholder="Car brand" type="text" class="form-control here">
                 </div>
-                <div class="col">
-                    <input v-model="newCar.model" type="text" class="form-control" placeholder="Car Model"
-                           pattern=".{2,}" required title="2 characters minimum">
-                </div>
-                <div class="col">
-                    <label>Year</label>
-                    <select v-model="newCar.year" class="form-control" required>
-                        <option v-for="(year,key) in years" :key="key" selected>{{ year}}.</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <input v-model="newCar.maxSpeed" type="number" class="form-control" placeholder="max speed">
-                </div>
-                <div class="col">
-                    <input v-model="newCar.numberOfDoors" type="number" class="form-control"
-                           placeholder="Number of doors" required>
-                </div>
-
-                <div class="col">
-                    <input v-model="newCar.isAutomatic" class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                        is the shifter automatic
-                    </label>
-                </div>
-
-                <h5>Select type of engine</h5>
-                <div class="col">
-                    <input v-model="newCar.engine" class="form-check-input" type="radio" name="exampleRadios"
-                           value="diesel">
-                    <label class="form-check-label">
-                        diesel
-                    </label>
-                    <div class="col">
-                        <input v-model="newCar.engine" class="form-check-input" type="radio" name="exampleRadios"
-                               value="electric">
-                        <label class="form-check-label">
-                            electric
-                        </label>
-                    </div>
-                    <div class="col">
-                        <input v-model="newCar.engine" class="form-check-input" type="radio" name="exampleRadios"
-                               value="petrol">
-                        <label class="form-check-label">
-                            petrol
-                        </label>
-                    </div>
-
+            </div>
+            <div class="form-group row">
+                <label for="carmodel" class="col-4 col-form-label">Car Model</label>
+                <div class="col-8">
+                    <input v-model="newCar.model" id="carmodel" name="carmodel" placeholder="car model" type="text" class="form-control here">
                 </div>
             </div>
 
-            <button type="submit">Submit the pritties form in the world</button>
-            <button type="reset">reset</button>
-            <button type="button" @click="alert">alert</button>
+            <div class="form-group row">
+                <label for="select" class="col-4 col-form-label">Year Manufactured</label>
+                <div class="col-8">
+                    <select v-model="newCar.year"  id="select" name="select" class="custom-select" aria-describedby="selectHelpBlock">
+                        <option v-for="(year,key) in years" :key="key" selected>{{ year}}.</option>
+                    </select>
+                    <span id="selectHelpBlock" class="form-text text-muted">Select year of production</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="maxspeed" class="col-4 col-form-label">Max Speed</label>
+                <div class="col-8">
+                    <input v-model="newCar.maxSpeed" id="maxspeed" name="maxspeed" placeholder="max speed" type="text" class="form-control here">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="numberofdoors" class="col-4 col-form-label">Number of doors</label>
+                <div class="col-8">
+                    <input v-model="newCar.numberOfDoors" id="numberofdoors" name="maxspeed" placeholder="number of doors" type="number" class="form-control here">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4">Is the car automatic</label>
+                <div class="col-8">
+                    <label class="custom-control custom-checkbox">
+                        <input v-model="newCar.isAutomatic" name="checkbox" type="checkbox" class="custom-control-input" value="true">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-4">Select type of engine</label>
+                <div class="col-8">
+                    <label class="custom-control custom-radio">
+                        <input v-model="newCar.engine" name="radio" type="radio" class="custom-control-input" value="electric">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">electric</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input v-model="newCar.engine" name="radio" type="radio" class="custom-control-input" value="diesel">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">diesel</span>
+                    </label>
+                    <label class="custom-control custom-radio">
+                        <input v-model="newCar.engine" name="radio" type="radio" class="custom-control-input" value="petrol">
+                        <span class="custom-control-indicator"></span>
+                        <span class="custom-control-description">petrol</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="offset-4 col-8">
+                    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                    <button name="reset" type="reset" class="btn btn-danger">Reset</button>
+                    <button name="button" @click="alert" class="btn btn-secondary">alert</button>
+                </div>
+            </div>
         </form>
     </div>
 </template>
@@ -89,7 +103,7 @@
 
             return {
 
-                years: [1990, 1991, 1992, 1993],
+                years: Array(29).fill(1990).map((n, i) => n + i),
 
                 newCar: {
 
@@ -114,9 +128,21 @@
             addCar() {
 
 
+                if(this.$route.params.id){
+
+
+                    carsServices.edit(this.newCar)
+                this.$router.push('/cars');
+
+                }else{
+
                 carsServices.add(this.newCar)
 
-                this.$router.push('cars');
+                this.$router.push('/cars');
+
+
+                }
+
 
             },
 
